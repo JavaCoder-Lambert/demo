@@ -8,8 +8,9 @@ import java.util.Objects;
  * 反转链表---
  * 链表(linked-list)：链表就是线性表的链式存储方式。链表的内存是不连续的，
  * 前一个元素存储地址的下一个地址中存储的不一定是下一个元素。链表通过一个指向下一个元素地址的引用将链表中的元素串起来。
- *其实为了简便，通常我们也直接将list看做是链表
- *  @Author: lzj
+ * 其实为了简便，通常我们也直接将list看做是链表
+ *
+ * @Author: lzj
  * @Date: 2021/7/6 22:22
  * @Description:
  */
@@ -24,6 +25,7 @@ public class NodeTest {
 
     /**
      * 准备链表信息 首尾相连
+     *
      * @return
      */
     static Node readyNode() {
@@ -49,6 +51,7 @@ public class NodeTest {
 
     /**
      * 反转链表信息 如果都为空则返回当前链表
+     *
      * @param node
      * @return
      */
