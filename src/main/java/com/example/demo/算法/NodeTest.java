@@ -13,7 +13,7 @@ import java.util.Objects;
  * @Date: 2021/7/6 22:22
  * @Description:
  */
-public class NodeTest翻转链表 {
+public class NodeTest {
     /**
      * 定义链表节点
      */
