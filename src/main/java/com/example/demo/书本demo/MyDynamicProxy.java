@@ -32,7 +32,7 @@ class HelloImpl implements Hello {
 }
 
 class MyInvocationHandler implements InvocationHandler {
-    private Object target;
+    private final Object target;
 
     public MyInvocationHandler(Object target) {
         this.target = target;
