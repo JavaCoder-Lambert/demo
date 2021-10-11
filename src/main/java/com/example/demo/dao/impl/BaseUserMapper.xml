@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.dao.BaseUserMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.example.demo.model.BaseUser">
+        <id column="id" property="id" />
+        <result column="openid" property="openid" />
+        <result column="nickname" property="nickname" />
+        <result column="avatar_url" property="avatarUrl" />
+        <result column="gender" property="gender" />
+        <result column="real_name" property="realName" />
+        <result column="mobile" property="mobile" />
+        <result column="id_card" property="idCard" />
+        <result column="login_name" property="loginName" />
+        <result column="password" property="password" />
+        <result column="user_no" property="userNo" />
+        <result column="user_type" property="userType" />
+        <result column="school_name" property="schoolName" />
+        <result column="integral" property="integral" />
+        <result column="create_time" property="createTime" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, openid, nickname, avatar_url, gender, real_name, mobile, id_card, login_name, password, user_no, user_type, school_name, integral, create_time
+    </sql>
+
+</mapper>
