@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.common.annotation.PrintLog;
+import com.example.demo.model.BaseUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Controller;
@@ -25,6 +26,5 @@ public class HelloController {
     public String getHello() {
         return "hello1111";
     }
-
 
 }

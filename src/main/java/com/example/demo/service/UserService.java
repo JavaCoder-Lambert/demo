@@ -1,5 +1,6 @@
 package com.example.demo.service;
 
+import com.example.demo.model.BaseUser;
 import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import com.example.demo.dao.UserMapper;
@@ -17,4 +18,7 @@ public interface UserService{
      * @return
      */
     User getUser(String userName);
+
+
+    BaseUser getOneUserById(Long id);
 }
