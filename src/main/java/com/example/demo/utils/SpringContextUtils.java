@@ -7,6 +7,9 @@ import org.springframework.stereotype.Component;
 
 import java.util.Map;
 
+/**
+ * @author 3270
+ */
 @Component
 public class SpringContextUtils implements ApplicationContextAware {
 	public static ApplicationContext applicationContext;
