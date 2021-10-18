@@ -57,42 +57,46 @@ public class LambdaDemo {
          * 原文链接：https://blog.csdn.net/iteye_19045/article/details/106672718
          */
         List<Integer> list= Stream.of(1,2,3,4,5).collect(Collectors.toList());
+        List<Integer> list22=new ArrayList<>(list);
+        list22.set(0,11);
+        System.out.println("初始前："+list);
+        System.out.println("初始后"+list22);
         //将数组进行累加求和
         //由于返回的是 Optional ，因此需要get()取出值。
         Integer total=list.stream().reduce((result,item)->result+item).get();
         System.out.println(total);
-        /**
-         * 将累加的每一步打印，可以发现Lambda表达式中的两个参数(result,item)的含义：
-         * 第一个参数 result ：初始值为集合中的第一个元素，后面为每次的累加计算结果 ；
-         * 第二个参数 item ：遍历的集合中的每一个元素（从第二个元素开始，第一个被result使用了）。
-         * /* 结果如下：
-         * result=1, item=2
-         * result=3, item=3
-         * result=6, item=4
-         * result=10, item=5
-         *
-         */
-        list.stream().reduce((result,item)->{
-            System.out.println("result="+result+", item="+item);
-            return result+item;
-        });
-
-        /**
-         * 2.两个参数的reduce
-         * T reduce(T identity, BinaryOperator<T> accumulator);
-         * 参数1：T identity 为一个初始值（默认值） ，当集合为空时，就返回这个默认值，当集合不为空时，该值也会参与计算；
-         * 参数2：BinaryOperator<T> accumulator 这个与一个参数的reduce相同。
-         * 返回值：并非 Optional，由于有默认值 identity ，因此计算结果不存在空指针的情况。
-         * ————————————————
-         * 版权声明：本文为CSDN博主「薛定谔的雄猫」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-         * 原文链接：https://blog.csdn.net/iteye_19045/article/details/106672718
-         */
-        Integer total1=list.stream().reduce(0,(result,item)->result+item);
-        System.out.println(total1);//结果为：15
-
-        list=new ArrayList<>();
-        total=list.stream().reduce(0,(result,item)->result+item);
-        System.out.println(total);//数组为空时，结果返回默认值0
+//        /**
+//         * 将累加的每一步打印，可以发现Lambda表达式中的两个参数(result,item)的含义：
+//         * 第一个参数 result ：初始值为集合中的第一个元素，后面为每次的累加计算结果 ；
+//         * 第二个参数 item ：遍历的集合中的每一个元素（从第二个元素开始，第一个被result使用了）。
+//         * /* 结果如下：
+//         * result=1, item=2
+//         * result=3, item=3
+//         * result=6, item=4
+//         * result=10, item=5
+//         *
+//         */
+//        list.stream().reduce((result,item)->{
+//            System.out.println("result="+result+", item="+item);
+//            return result+item;
+//        });
+//
+//        /**
+//         * 2.两个参数的reduce
+//         * T reduce(T identity, BinaryOperator<T> accumulator);
+//         * 参数1：T identity 为一个初始值（默认值） ，当集合为空时，就返回这个默认值，当集合不为空时，该值也会参与计算；
+//         * 参数2：BinaryOperator<T> accumulator 这个与一个参数的reduce相同。
+//         * 返回值：并非 Optional，由于有默认值 identity ，因此计算结果不存在空指针的情况。
+//         * ————————————————
+//         * 版权声明：本文为CSDN博主「薛定谔的雄猫」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+//         * 原文链接：https://blog.csdn.net/iteye_19045/article/details/106672718
+//         */
+//        Integer total1=list.stream().reduce(0,(result,item)->result+item);
+//        System.out.println(total1);//结果为：15
+//
+//        list=new ArrayList<>();
+//        total=list.stream().reduce(0,(result,item)->result+item);
+//        System.out.println(total);//数组为空时，结果返回默认值0
 
 
     }
