@@ -1,5 +1,12 @@
 package com.example.demo.杂七杂八;
 
+import com.baomidou.mybatisplus.core.toolkit.StringUtils;
+import com.google.gson.Gson;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 /**
  * @Author lizhijiang
  * @Version
@@ -14,15 +21,27 @@ public class Demo {
         }
         return str.chars().allMatch(Character::isDigit);
     }
-    public static void main(String[] args) {
-        String locationCode="1_1_1_1";
-        int num =locationCode.length();
-        String value1=locationCode.substring(0,num-1);
-        String value2=locationCode.substring(num-1,num);
-        if(isNumeric(value2)){
-            System.out.println("是数字");
+
+    private static List<String> getNearLocationCodes(String locationCode){
+        if(StringUtils.isBlank(locationCode)){
+            return Collections.emptyList();
         }
-        System.out.println(value1);
-        System.out.println(value2);
+        List<String> values=new ArrayList<>(2);
+        int num =locationCode.length();
+        String valueBefore=locationCode.substring(0,num-1);
+        String valueAfter=locationCode.substring(num-1,num);
+        if(isNumeric(valueAfter)){
+            int number=Integer.parseInt(valueAfter);
+            if(number-1>0){
+                values.add(valueBefore+(number-1));
+            }
+            values.add(valueBefore+(number+1));
+        }
+        return values;
+    }
+
+    public static void main(String[] args) {
+        String locationCode="1_1_1_2";
+        System.out.println(new Gson().toJson(getNearLocationCodes(locationCode)));
     }
 }
