@@ -1,5 +1,6 @@
 package com.example.demo.杂七杂八;
 
+import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.google.gson.Gson;
 
@@ -47,5 +48,8 @@ public class Demo {
         strings.add("quality_06");
         strings.add("quality_05");
         System.out.println(new Gson().toJson(strings));
+        String value="[\"quality_06\",\"quality_05\"]";
+        List<String> values= JSONObject.parseArray(value,String.class);
+        System.out.println(values);
     }
 }
