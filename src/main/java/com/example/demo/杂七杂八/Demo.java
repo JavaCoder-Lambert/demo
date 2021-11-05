@@ -41,7 +41,11 @@ public class Demo {
     }
 
     public static void main(String[] args) {
-        String locationCode="1_1_1_2";
-        System.out.println(new Gson().toJson(getNearLocationCodes(locationCode)));
+//        String locationCode="1_1_1_2";
+//        System.out.println(new Gson().toJson(getNearLocationCodes(locationCode)));
+        List<String> strings=new ArrayList<>();
+        strings.add("quality_06");
+        strings.add("quality_05");
+        System.out.println(new Gson().toJson(strings));
     }
 }
