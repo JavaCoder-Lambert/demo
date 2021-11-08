@@ -53,6 +53,8 @@ public class Demo {
             String key=test.next();
             if(key.equalsIgnoreCase("quality_05")){
                 test.remove();
+                //需要添加continue 进行下一个元素循环
+                continue;
              }
             System.out.println("找到了并且删除了,当前值是"+key);
         }
