@@ -6,6 +6,7 @@ import com.google.gson.Gson;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -47,6 +48,14 @@ public class Demo {
         List<String> strings=new ArrayList<>();
         strings.add("quality_06");
         strings.add("quality_05");
+        Iterator<String> test=strings.iterator();
+        while(test.hasNext()){
+            String key=test.next();
+            if(key.equalsIgnoreCase("quality_05")){
+                test.remove();
+             }
+            System.out.println("找到了并且删除了,当前值是"+key);
+        }
         System.out.println(new Gson().toJson(strings));
         String value="[\"quality_06\",\"quality_05\"]";
         List<String> values= JSONObject.parseArray(value,String.class);
