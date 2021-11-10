@@ -2,6 +2,7 @@ package com.example.demo.杂七杂八;
 
 import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
+import com.example.demo.enums.DocTallyOverTypeEnum;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
@@ -45,22 +46,25 @@ public class Demo {
     public static void main(String[] args) {
 //        String locationCode="1_1_1_2";
 //        System.out.println(new Gson().toJson(getNearLocationCodes(locationCode)));
-        List<String> strings=new ArrayList<>();
-        strings.add("quality_06");
-        strings.add("quality_05");
-        Iterator<String> test=strings.iterator();
-        while(test.hasNext()){
-            String key=test.next();
-            if(key.equalsIgnoreCase("quality_05")){
-                test.remove();
-                //需要添加continue 进行下一个元素循环
-                continue;
-             }
-            System.out.println("找到了并且删除了,当前值是"+key);
-        }
-        System.out.println(new Gson().toJson(strings));
-        String value="[\"quality_06\",\"quality_05\"]";
-        List<String> values= JSONObject.parseArray(value,String.class);
-        System.out.println(values);
+//        List<String> strings=new ArrayList<>();
+//        strings.add("quality_06");
+//        strings.add("quality_05");
+//        Iterator<String> test=strings.iterator();
+//        while(test.hasNext()){
+//            String key=test.next();
+//            if(key.equalsIgnoreCase("quality_05")){
+//                test.remove();
+//                //需要添加continue 进行下一个元素循环
+//                continue;
+//             }
+//            System.out.println("找到了并且删除了,当前值是"+key);
+//        }
+//        System.out.println(new Gson().toJson(strings));
+//        String value="[\"quality_06\",\"quality_05\"]";
+//        List<String> values= JSONObject.parseArray(value,String.class);
+//        System.out.println(values);
+        String value=DocTallyOverTypeEnum.getEnumValueByCode(1);
+
+        System.out.println(value);
     }
 }
