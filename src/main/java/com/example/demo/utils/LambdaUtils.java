@@ -19,13 +19,13 @@ import java.util.function.Predicate;
  */
 public class LambdaUtils {
     /**
-     * 根据属性值去除
+     * 根据属性值去除重复值
      * @param keyExtractor
      * @param <T>
      * @return
      */
     private static <T> Predicate<T> distinctByKey(Function<? super T , Object> keyExtractor) {
-        Map<Object , Boolean> seen = new ConcurrentHashMap<>();
+        Map<Object , Boolean> seen = new ConcurrentHashMap<>(8);
         return t -> seen.putIfAbsent(keyExtractor.apply(t), Boolean.TRUE) == null;
     }
 }
