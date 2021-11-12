@@ -5,6 +5,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
+
 /**
  * @Author: lzj
  * @Date: 2021/9/22 21:58
@@ -14,7 +16,9 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Person {
+public class Person implements Serializable {
+
+    private static final long serialVersionUID = -9200732935697719642L;
     private String firstName;
 
     private String lastName;

@@ -24,7 +24,7 @@ public class LambdaUtils {
      * @param <T>
      * @return
      */
-    private static <T> Predicate<T> distinctByKey(Function<? super T , Object> keyExtractor) {
+    public static <T> Predicate<T> distinctByKey(Function<? super T , Object> keyExtractor) {
         Map<Object , Boolean> seen = new ConcurrentHashMap<>(8);
         return t -> seen.putIfAbsent(keyExtractor.apply(t), Boolean.TRUE) == null;
     }

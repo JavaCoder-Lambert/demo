@@ -1,5 +1,7 @@
 package com.example.demo.杂七杂八;
 
+import com.example.demo.utils.LambdaUtils;
+import com.google.gson.Gson;
 import org.thymeleaf.expression.Lists;
 
 import java.util.ArrayList;
@@ -14,37 +16,40 @@ import java.util.stream.Stream;
  */
 public class LambdaDemo {
     public static void main(String[] args) {
-//        List<Person> javaProgrammers = new ArrayList<Person>() {
-//            {
-//                add(new Person("Elsdon", "Jaycob", "Java programmer", "male", 2000, 18));
-//                add(new Person("Tamsen", "Brittany", "Java programmer", "female", 2371, 55));
-//                add(new Person("Floyd", "Donny", "Java programmer", "male", 3322, 25));
-//                add(new Person("Sindy", "Jonie", "Java programmer", "female", 35020, 15));
-//                add(new Person("Vere", "Hervey", "Java programmer", "male", 2272, 25));
-//                add(new Person("Maude", "Jaimie", "Java programmer", "female", 2057, 87));
-//                add(new Person("Shawn", "Randall", "Java programmer", "male", 3120, 99));
-//                add(new Person("Jayden", "Corrina", "Java programmer", "female", 345, 25));
-//                add(new Person("Palmer", "Dene", "Java programmer", "male", 3375, 14));
-//                add(new Person("Addison", "Pam", "Java programmer", "female", 3426, 20));
-//            }
-//        };
-//        ////返回数值流，减少拆箱封箱操作，避免占用内存  IntStream
-//        int asInt = javaProgrammers.stream()
-//                .mapToInt(Person::getSalary)
-//                .reduce((x, y) -> x += y)
-//                .getAsInt(); //return int
-//        int sumSalary=javaProgrammers.stream().mapToInt(Person::getSalary).sum();
-//        System.out.println("方式一   reduce(BinaryOperator<T> accumulator)   求薪资测试结果："+asInt);
-//        System.out.println("方式一   sum   求薪资测试结果："+sumSalary);
-//
-//        /**
-//         * 注意：
-//         *      1.与方式一相比设置了累加器的初始值，参数一（x）则不再是Stream中的第一个数据而是设置的初始值（10000）其他相同
-//         */
-//        int reduce = javaProgrammers.stream().mapToInt(Person::getSalary).reduce(10000, (x, y) -> x += y);
-//        System.out.println("方式二  reduce(T identity, BinaryOperator<T> accumulator)   求薪资测试结果："+reduce);
-//
+        List<Person> javaProgrammers = new ArrayList<Person>() {
+            private static final long serialVersionUID = 6535629416990372831L;
 
+            {
+                add(new Person("Elsdon", "Jaycob", "Java programmer", "male", 2000, 18));
+                add(new Person("Tamsen", "Brittany", "Java programmer", "female", 2371, 55));
+                add(new Person("Floyd", "Donny", "Java programmer", "male", 3322, 25));
+                add(new Person("Sindy", "Jonie", "Java programmer", "female", 35020, 15));
+                add(new Person("Vere", "Hervey", "Java programmer", "male", 2272, 25));
+                add(new Person("Maude", "Jaimie", "Java programmer", "female", 2057, 87));
+                add(new Person("Shawn", "Randall", "Java programmer", "male", 3120, 99));
+                add(new Person("Jayden", "Corrina", "Java programmer", "female", 345, 25));
+                add(new Person("Palmer", "Dene", "Java programmer", "male", 3375, 14));
+                add(new Person("Addison", "Pam", "Java programmer", "female", 3426, 20));
+            }
+        };
+        ////返回数值流，减少拆箱封箱操作，避免占用内存  IntStream
+        int asInt = javaProgrammers.stream()
+                .mapToInt(Person::getSalary)
+                .reduce((x, y) -> x += y)
+                .getAsInt(); //return int
+        int sumSalary=javaProgrammers.stream().mapToInt(Person::getSalary).sum();
+        System.out.println("方式一   reduce(BinaryOperator<T> accumulator)   求薪资测试结果："+asInt);
+        System.out.println("方式一   sum   求薪资测试结果："+sumSalary);
+
+        /**
+         * 注意：
+         *      1.与方式一相比设置了累加器的初始值，参数一（x）则不再是Stream中的第一个数据而是设置的初始值（10000）其他相同
+         */
+        int reduce = javaProgrammers.stream().mapToInt(Person::getSalary).reduce(10000, (x, y) -> x += y);
+        System.out.println("方式二  reduce(T identity, BinaryOperator<T> accumulator)   求薪资测试结果："+reduce);
+
+        List<Person> testValues=javaProgrammers.stream().filter(LambdaUtils.distinctByKey(Person::getAge)).collect(Collectors.toList());
+        System.out.println(new Gson().toJson(testValues));
         /**
          * reduce有三个重载方法
          * 1.一个参数的reduce
