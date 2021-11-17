@@ -5,10 +5,7 @@ import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.example.demo.enums.DocTallyOverTypeEnum;
 import com.google.gson.Gson;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
 /**
  * @Author lizhijiang
@@ -63,8 +60,29 @@ public class Demo {
 //        String value="[\"quality_06\",\"quality_05\"]";
 //        List<String> values= JSONObject.parseArray(value,String.class);
 //        System.out.println(values);
-        String value=DocTallyOverTypeEnum.getEnumValueByCode(1);
+//        String value=DocTallyOverTypeEnum.getEnumValueByCode(1);
+//
+//        System.out.println(value);
 
-        System.out.println(value);
+    }
+
+    /**
+     * 每隔49S进行数据处理
+     */
+    public static class TenNumber
+    {
+        private static int index = 0;
+        public static void main(String[] args)
+        {
+            Timer timer = new Timer();
+            timer.schedule(new TimerTask()
+            {
+                @Override
+                public void run()
+                {
+                    System.out.println("49S输出信息");
+                }
+            }, 0, 1000);
+        }
     }
 }
