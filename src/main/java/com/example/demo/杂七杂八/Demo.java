@@ -57,32 +57,37 @@ public class Demo {
 //            System.out.println("找到了并且删除了,当前值是"+key);
 //        }
 //        System.out.println(new Gson().toJson(strings));
-//        String value="[\"quality_06\",\"quality_05\"]";
-//        List<String> values= JSONObject.parseArray(value,String.class);
-//        System.out.println(values);
+        //
+        String value="['肖骏峰','龙孟媛']";
+        List<String> values= JSONObject.parseArray(value,String.class);
+        System.out.println(values);
+        //'[337,1399283584782569473]'
+        String longtest="[337,1399283584782569473]";
+        List<Long> longtest1= JSONObject.parseArray(longtest,Long.class);
+        System.out.println(longtest1);
 //        String value=DocTallyOverTypeEnum.getEnumValueByCode(1);
 //
 //        System.out.println(value);
 
     }
 
-    /**
-     * 每隔49S进行数据处理
-     */
-    public static class TenNumber
-    {
-        private static int index = 0;
-        public static void main(String[] args)
-        {
-            Timer timer = new Timer();
-            timer.schedule(new TimerTask()
-            {
-                @Override
-                public void run()
-                {
-                    System.out.println("49S输出信息");
-                }
-            }, 0, 1000);
-        }
-    }
+//    /**
+//     * 每隔49S进行数据处理
+//     */
+//    public static class TenNumber
+//    {
+//        private static int index = 0;
+//        public static void main(String[] args)
+//        {
+//            Timer timer = new Timer();
+//            timer.schedule(new TimerTask()
+//            {
+//                @Override
+//                public void run()
+//                {
+//                    System.out.println("49S输出信息");
+//                }
+//            }, 0, 1000);
+//        }
+//    }
 }
