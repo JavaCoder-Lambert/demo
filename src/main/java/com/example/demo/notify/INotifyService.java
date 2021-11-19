@@ -10,7 +10,7 @@ public interface INotifyService {
     /**
      * 处理类型
      */
-    public String handleType();
+    String handleType();
     /**
      * 处理具体业务
      */
