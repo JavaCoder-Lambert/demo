@@ -5,10 +5,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * @author Henry
- * @create 2020-03-24 18:25
+ * lzj
  */
-
 public class ApiLog {
 
     public static final Logger LOGGER = LoggerFactory.getLogger(ApiLog.class);
