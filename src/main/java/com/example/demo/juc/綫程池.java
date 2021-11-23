@@ -1,8 +1,9 @@
 package com.example.demo.juc;
 
-import java.util.concurrent.*;
-import java.util.concurrent.atomic.AtomicInteger;
-import java.util.concurrent.locks.ReentrantLock;
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @Author: lzj
@@ -20,6 +21,34 @@ public class 綫程池 {
     ThreadLocal<Double> tl1 = new ThreadLocal<Double>();
     ThreadLocal<Long> tl2 = new ThreadLocal<Long>();
 
+    public static class MyThread extends Thread {
+        @Override
+        public void run() {
+            System.out.println("线程:" + Thread.currentThread().getName());
+            Integer num = DySchedule.getLine();
+            System.out.println("startline = " +(num-1000)+",endline = " + num);
+        }
+    }
+
+    public static class DySchedule {
+        private static AtomicInteger line = new AtomicInteger(0);
+        static ExecutorService pool = Executors.newFixedThreadPool(100);
+
+        public static int getLine(){
+            return line.addAndGet(1000);
+        }
+        public static void doJob(){
+            for (int i = 0;i<100;i++){
+                Thread thread = new MyThread();
+                pool.execute(thread);
+            }
+            pool.shutdown();
+
+        }
+        public static void main(String[] args) {
+            DySchedule.doJob();
+        }
+    }
 
     /*public static void main(String[] args) throws InterruptedException *//*{
         //生成计数器 且默认值为1 即一个线程使用一次后则释放当前线程
