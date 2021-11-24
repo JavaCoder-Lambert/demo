@@ -26,9 +26,7 @@ public class JucDemo2 {
                     System.out.println("子线程" + Thread.currentThread().getName() + "准备好了");
                     cyclicBarrier.await();
                     System.out.println("子线程" + Thread.currentThread().getName() + "开始跑了");
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                } catch (BrokenBarrierException e) {
+                } catch (InterruptedException | BrokenBarrierException e) {
                     e.printStackTrace();
                 }
             }).start();
