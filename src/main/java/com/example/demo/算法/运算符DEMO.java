@@ -8,8 +8,23 @@ package com.example.demo.算法;
  * @Description:
  */
 public class 运算符DEMO {
+
+    public static int pow(int m,int n){
+        int sum=1;
+        int tmp=m;
+        while (n!=0){
+            if((n&1)==1){
+                sum *=tmp;
+            }
+            tmp*=tmp;
+            n=n>>>1;
+        }
+        return sum;
+    }
+
     public static void main(String[] args) {
-         System.out.println(4<<5);
-        System.out.println(4>>5);
+//         System.out.println(4<<5);
+//        System.out.println(4>>5);
+        System.out.println(pow(3,3));
     }
 }
