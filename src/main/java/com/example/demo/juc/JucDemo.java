@@ -8,6 +8,7 @@ import java.util.concurrent.CountDownLatch;
  * 即完成了我们如上说的场景,只需要在所有进程都进行到某一节点后才会执行被阻塞的进程.
  * 如果我们想要多个线程在同一时间进行就要用到CyclicBarrier了</>
  *
+ * 这个也就是说只有在await的时候才会释放器当前线程。比如数目是10每次-1 等到是0的时候才释放当前线程，才换取到主线程进行下一步
  * @Author: lzj
  * @Date: 2021/10/22 23:18
  * @Description:
@@ -34,10 +35,10 @@ public class JucDemo {
 
 
         try {
-            System.out.println("门卫等待员工上班中...");
+            System.out.println("主线程"+Thread.currentThread().getName()+"门卫等待员工上班中...");
             //主线程阻塞等待计数器归零
             latch.await();
-            System.out.println("员工都来了,门卫去休息了");
+            System.out.println("主线程"+Thread.currentThread().getName()+"员工都来了,门卫去休息了");
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
