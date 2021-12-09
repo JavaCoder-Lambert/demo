@@ -9,7 +9,6 @@ import lombok.*;
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
-@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 public class Girl extends Person{
@@ -17,7 +16,6 @@ public class Girl extends Person{
      * 备注信息
      */
     private String remark;
-
     public Girl(String firstName, String lastName, String jobName, String sex, Integer salary, Integer age, String remark) {
         super(firstName, lastName, jobName, sex, salary, age);
         this.remark = remark;

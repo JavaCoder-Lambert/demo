@@ -3,6 +3,9 @@ package com.example.demo.算法;
 import cn.hutool.core.date.BetweenFormater;
 import cn.hutool.core.date.DateUtil;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 
@@ -33,8 +36,13 @@ public class 运算符DEMO {
 //        System.out.println(4>>5);
         //System.out.println(pow(3,3));
         final LocalDateTime fromDate = LocalDateTime.now();
-        final LocalDateTime toDate = LocalDateTime.now().plusHours(56).plusMinutes(10);
+        final LocalDateTime toDate = LocalDateTime.now().plusMinutes(10);
+        if(Duration.between(fromDate,toDate).toMinutes()<60){
+            System.out.println("1小时");
+        }
         String value=DateUtil.formatBetween(ChronoUnit.MILLIS.between(fromDate, toDate), BetweenFormater.Level.HOUR);
         System.out.println(value);
+        BigDecimal values=BigDecimal.valueOf(25).divide(BigDecimal.valueOf(100),2, RoundingMode.HALF_UP).multiply(BigDecimal.valueOf(100));
+        System.out.println(values);
     }
 }
