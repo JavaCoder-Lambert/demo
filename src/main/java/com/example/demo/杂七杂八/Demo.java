@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.example.demo.enums.DocTallyOverTypeEnum;
 import com.google.gson.Gson;
 
+import java.sql.SQLOutput;
 import java.util.*;
 
 /**
@@ -58,17 +59,18 @@ public class Demo {
 //        }
 //        System.out.println(new Gson().toJson(strings));
         //
-        String value="['肖骏峰','龙孟媛']";
-        List<String> values= JSONObject.parseArray(value,String.class);
-        System.out.println(values);
-        //'[337,1399283584782569473]'
-        String longtest="[337,1399283584782569473]";
-        List<Long> longtest1= JSONObject.parseArray(longtest,Long.class);
-        System.out.println(longtest1);
+//        String value="['肖骏峰','龙孟媛']";
+//        List<String> values= JSONObject.parseArray(value,String.class);
+//        System.out.println(values);
+//        //'[337,1399283584782569473]'
+//        String longtest="[337,1399283584782569473]";
+//        List<Long> longtest1= JSONObject.parseArray(longtest,Long.class);
+//        System.out.println(longtest1);
 //        String value=DocTallyOverTypeEnum.getEnumValueByCode(1);
 //
 //        System.out.println(value);
-
+        List<String> list=Arrays.asList("a","li");
+        System.out.println(new Gson().toJson(list));
     }
 
 //    /**
@@ -90,4 +92,7 @@ public class Demo {
 //            }, 0, 1000);
 //        }
 //    }
+
+
+
 }
