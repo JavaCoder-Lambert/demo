@@ -15,6 +15,8 @@ import java.util.*;
  * @CreateTime 2021年11月03日 14:33
  */
 public class Demo {
+    public static long MAX_SHEDULE_PEROID = 3600* 1000 * 24 * 45L;
+
     public static boolean isNumeric(final String str) {
         // null or empty
         if (str == null || str.length() == 0) {
@@ -71,6 +73,9 @@ public class Demo {
 //        System.out.println(value);
         List<String> list=Arrays.asList("a","li");
         System.out.println(new Gson().toJson(list));
+
+        System.out.println(justForFun("li","asdadsa"));
+        System.out.println(MAX_SHEDULE_PEROID);
     }
 
 //    /**
@@ -93,6 +98,9 @@ public class Demo {
 //        }
 //    }
 
+    private static String justForFun(String... test){
+        return JSONObject.toJSONString(test);
+    }
 
 
 }
