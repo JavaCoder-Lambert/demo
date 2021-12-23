@@ -90,6 +90,7 @@ public class Demo {
         String str = "1,2,3,4";
         List<String> userIdStr = StrUtil.split(str, StrUtil.COMMA);
         System.out.println(userIdStr);
+        System.out.println(JSON.toJSONString(userIdStr));
     }
 
 //    /**
