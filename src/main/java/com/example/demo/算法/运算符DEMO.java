@@ -1,6 +1,6 @@
 package com.example.demo.算法;
 
-import cn.hutool.core.date.BetweenFormater;
+import cn.hutool.core.date.BetweenFormatter;
 import cn.hutool.core.date.DateUtil;
 
 import java.math.BigDecimal;
@@ -40,7 +40,7 @@ public class 运算符DEMO {
         if(Duration.between(fromDate,toDate).toMinutes()<60){
             System.out.println("1小时");
         }
-        String value=DateUtil.formatBetween(ChronoUnit.MILLIS.between(fromDate, toDate), BetweenFormater.Level.HOUR);
+        String value=DateUtil.formatBetween(ChronoUnit.MILLIS.between(fromDate, toDate), BetweenFormatter.Level.HOUR);
         System.out.println(value);
         BigDecimal values=BigDecimal.valueOf(25).divide(BigDecimal.valueOf(100),2, RoundingMode.HALF_UP).multiply(BigDecimal.valueOf(100));
         System.out.println(values);

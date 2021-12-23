@@ -1,8 +1,11 @@
 package com.example.demo.杂七杂八;
 
+import cn.hutool.core.util.StrUtil;
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.example.demo.enums.DocTallyOverTypeEnum;
+import com.example.demo.model.DocQcUnusualSimpleReq;
 import com.google.gson.Gson;
 
 import java.sql.SQLOutput;
@@ -15,7 +18,7 @@ import java.util.*;
  * @CreateTime 2021年11月03日 14:33
  */
 public class Demo {
-    public static long MAX_SHEDULE_PEROID = 3600* 1000 * 24 * 45L;
+    public static long MAX_SHEDULE_PEROID = 3600 * 1000 * 24 * 45L;
 
     public static boolean isNumeric(final String str) {
         // null or empty
@@ -25,20 +28,20 @@ public class Demo {
         return str.chars().allMatch(Character::isDigit);
     }
 
-    private static List<String> getNearLocationCodes(String locationCode){
-        if(StringUtils.isBlank(locationCode)){
+    private static List<String> getNearLocationCodes(String locationCode) {
+        if (StringUtils.isBlank(locationCode)) {
             return Collections.emptyList();
         }
-        List<String> values=new ArrayList<>(2);
-        int num =locationCode.length();
-        String valueBefore=locationCode.substring(0,num-1);
-        String valueAfter=locationCode.substring(num-1,num);
-        if(isNumeric(valueAfter)){
-            int number=Integer.parseInt(valueAfter);
-            if(number-1>0){
-                values.add(valueBefore+(number-1));
+        List<String> values = new ArrayList<>(2);
+        int num = locationCode.length();
+        String valueBefore = locationCode.substring(0, num - 1);
+        String valueAfter = locationCode.substring(num - 1, num);
+        if (isNumeric(valueAfter)) {
+            int number = Integer.parseInt(valueAfter);
+            if (number - 1 > 0) {
+                values.add(valueBefore + (number - 1));
             }
-            values.add(valueBefore+(number+1));
+            values.add(valueBefore + (number + 1));
         }
         return values;
     }
@@ -71,11 +74,22 @@ public class Demo {
 //        String value=DocTallyOverTypeEnum.getEnumValueByCode(1);
 //
 //        System.out.println(value);
-        List<String> list=Arrays.asList("a","li");
-        System.out.println(new Gson().toJson(list));
+//        List<String> list=Arrays.asList("a","li");
+//        System.out.println(new Gson().toJson(list));
+//
+//        System.out.println(justForFun("li","asdadsa"));
+//        System.out.println(MAX_SHEDULE_PEROID);
 
-        System.out.println(justForFun("li","asdadsa"));
-        System.out.println(MAX_SHEDULE_PEROID);
+//        DocQcUnusualSimpleReq req=new DocQcUnusualSimpleReq();
+//        req.setQualityId(73152143L);
+//        System.out.println(JSON.toJSONString(req));
+//
+//        String str="{\"qualityId\":73152143}";
+//        System.out.println(JSON.parseObject(str,DocQcUnusualSimpleReq.class));
+
+        String str = "1,2,3,4";
+        List<String> userIdStr = StrUtil.split(str, StrUtil.COMMA);
+        System.out.println(userIdStr);
     }
 
 //    /**
@@ -98,7 +112,7 @@ public class Demo {
 //        }
 //    }
 
-    private static String justForFun(String... test){
+    private static String justForFun(String... test) {
         return JSONObject.toJSONString(test);
     }
 
