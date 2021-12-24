@@ -87,10 +87,10 @@ public class Demo {
 //        String str="{\"qualityId\":73152143}";
 //        System.out.println(JSON.parseObject(str,DocQcUnusualSimpleReq.class));
 
-        String str = "1,2,3,4";
-        List<String> userIdStr = StrUtil.split(str, StrUtil.COMMA);
-        System.out.println(userIdStr);
-        System.out.println(JSON.toJSONString(userIdStr));
+//        String str = "1,2,3,4";
+//        List<String> userIdStr = StrUtil.split(str, StrUtil.COMMA);
+//        System.out.println(userIdStr);
+//        System.out.println(JSON.toJSONString(userIdStr));
         System.out.println("第一年数目是--"+getNum(1));
         System.out.println("第二年数目是--"+getNum(2));
         System.out.println("第三年数目是--"+getNum(3));
@@ -106,6 +106,7 @@ public class Demo {
     private static Integer getNum(int year){
         int num=1;
         for (int i = 0; i <= year; i++) {
+            System.out.println(i);
             if(i==3){
                 num=num+getNum(year-3);
             }else if(i==6){
