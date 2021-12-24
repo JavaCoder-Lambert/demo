@@ -91,6 +91,30 @@ public class Demo {
         List<String> userIdStr = StrUtil.split(str, StrUtil.COMMA);
         System.out.println(userIdStr);
         System.out.println(JSON.toJSONString(userIdStr));
+        System.out.println("第一年数目是--"+getNum(1));
+        System.out.println("第二年数目是--"+getNum(2));
+        System.out.println("第三年数目是--"+getNum(3));
+        System.out.println("第四年数目是--"+getNum(4));
+        System.out.println("第五年数目是--"+getNum(5));
+        System.out.println("第六年数目是--"+getNum(6));
+        System.out.println("第七年数目是--"+getNum(7));
+        System.out.println("第八年数目是--"+getNum(8));
+        System.out.println("第九年数目是--"+getNum(9));
+        System.out.println("第10年数目是--"+getNum(10));
+    }
+
+    private static Integer getNum(int year){
+        int num=1;
+        for (int i = 0; i <= year; i++) {
+            if(i==2){
+                num=num+getNum(year-3);
+            }else if(i==5){
+                num=num+getNum(year-6);
+            }else if(i==6){
+                num--;
+            }
+        }
+        return num;
     }
 
 //    /**
