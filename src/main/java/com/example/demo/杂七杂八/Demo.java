@@ -106,11 +106,11 @@ public class Demo {
     private static Integer getNum(int year){
         int num=1;
         for (int i = 0; i <= year; i++) {
-            if(i==2){
+            if(i==3){
                 num=num+getNum(year-3);
-            }else if(i==5){
-                num=num+getNum(year-6);
             }else if(i==6){
+                num=num+getNum(year-6);
+            }else if(i==7){
                 num--;
             }
         }
