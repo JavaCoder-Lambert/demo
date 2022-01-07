@@ -91,16 +91,27 @@ public class Demo {
 //        List<String> userIdStr = StrUtil.split(str, StrUtil.COMMA);
 //        System.out.println(userIdStr);
 //        System.out.println(JSON.toJSONString(userIdStr));
-        System.out.println("第一年数目是--"+getNum(1));
-        System.out.println("第二年数目是--"+getNum(2));
-        System.out.println("第三年数目是--"+getNum(3));
-        System.out.println("第四年数目是--"+getNum(4));
-        System.out.println("第五年数目是--"+getNum(5));
-        System.out.println("第六年数目是--"+getNum(6));
-        System.out.println("第七年数目是--"+getNum(7));
-        System.out.println("第八年数目是--"+getNum(8));
-        System.out.println("第九年数目是--"+getNum(9));
-        System.out.println("第10年数目是--"+getNum(10));
+//        System.out.println("第一年数目是--"+getNum(1));
+//        System.out.println("第二年数目是--"+getNum(2));
+//        System.out.println("第三年数目是--"+getNum(3));
+//        System.out.println("第四年数目是--"+getNum(4));
+//        System.out.println("第五年数目是--"+getNum(5));
+//        System.out.println("第六年数目是--"+getNum(6));
+//        System.out.println("第七年数目是--"+getNum(7));
+//        System.out.println("第八年数目是--"+getNum(8));
+//        System.out.println("第九年数目是--"+getNum(9));
+//        System.out.println("第10年数目是--"+getNum(10));
+        StringBuilder sb = new StringBuilder();
+        //如果是审核失败
+            String value = "您的异常批次审批已被[%s]驳回，请您及时确认.";
+            sb.append(String.format(value, "lizhijiang")).append("\r\n")
+                    .append("质检编号：").append("QCHEIHEI").append("\r\n")
+                    .append("款号：").append("SPUCODE").append("\r\n")
+                    .append("问题数量：").append("11").append("\r\n")
+                    .append("供应商：").append("vendor").append("\r\n")
+                    .append("驳回原因:").append("写得好啊");
+        System.out.println(sb.toString());
+
     }
 
     private static Integer getNum(int year){
