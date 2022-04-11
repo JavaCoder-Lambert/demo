@@ -25,6 +25,7 @@
         <commons.lang.version>3.9</commons.lang.version>
         <aspectjweaver.version>1.9.4</aspectjweaver.version>
         <fastjson.version>1.2.62</fastjson.version>
+        <mapstruct.version>1.4.2.Final</mapstruct.version>
     </properties>
 
     <dependencies>
@@ -198,7 +199,18 @@
             <artifactId>sentinel-core</artifactId>
             <version>1.8.2</version>
         </dependency>
-
+        <!--MapStruct相关依赖-->
+        <dependency>
+            <groupId>org.mapstruct</groupId>
+            <artifactId>mapstruct</artifactId>
+            <version>${mapstruct.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.mapstruct</groupId>
+            <artifactId>mapstruct-processor</artifactId>
+            <version>${mapstruct.version}</version>
+            <scope>compile</scope>
+        </dependency>
     </dependencies>
 
     <build>
