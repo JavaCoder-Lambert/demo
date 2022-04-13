@@ -88,10 +88,12 @@ public class 綫程池 {
                         total++;
                     }
                     System.out.println("解锁前当前线程名称"+Thread.currentThread().getName());
-                    lock.unlock(); // 解锁
+
                     System.out.println("解锁后当前线程名称"+Thread.currentThread().getName());
                 } catch (InterruptedException e) {
                     e.printStackTrace();
+                }finally {
+                    lock.unlock(); // 解锁
                 }
             }).start();
         }
