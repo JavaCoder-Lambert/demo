@@ -28,7 +28,7 @@ public class 算法测试 {
     }
 
     // 方法1：
-    public static int getNumber1(int nums[]) {
+    public static int getNumber1(int[] nums) {
         /*
          * 解决思路： 先对数组进行排序 遍历数组，比较相邻的个元素 只要一发现和相邻的元素不相等就返回这个数值
          */
@@ -46,7 +46,7 @@ public class 算法测试 {
     }
 
     // 方法2
-    public static int getNumber2(int nums[]) {
+    public static int getNumber2(int[] nums) {
         /*
          * 解决思路： 根据HashSet集合的特点可以知，不能存放重复元素， 如果集合里已经存在重复元素result.add(nums[i])的值为false;
          * 因为集合里只有一个元素，所以利用iterator().next()可以找出集合中唯一的元素
@@ -62,7 +62,7 @@ public class 算法测试 {
     }
 
     // 方法3
-    public static int getNumber3(int nums[]) {
+    public static int getNumber3(int[] nums) {
         /*
          * 解决思路： a ^ 0 = a; a ^ a = 0; 受到异或运算的启发可解决该问题
          * 异或
