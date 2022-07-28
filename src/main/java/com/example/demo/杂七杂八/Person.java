@@ -33,4 +33,7 @@ public class Person implements Serializable {
     private Integer age;
 
     private List<String>  values;
+
+    public Person(String firstName, String lastName, String jobName, String sex, Integer salary, Integer age) {
+    }
 }
