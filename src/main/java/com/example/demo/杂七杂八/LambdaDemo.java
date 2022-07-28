@@ -20,16 +20,17 @@ public class LambdaDemo {
             private static final long serialVersionUID = 6535629416990372831L;
 
             {
-                add(new Person("Elsdon", "Jaycob", "Java programmer", "male", 2000, 18));
-                add(new Person("Tamsen", "Brittany", "Java programmer", "female", 2371, 55));
-                add(new Person("Floyd", "Donny", "Java programmer", "male", 3322, 25));
-                add(new Person("Sindy", "Jonie", "Java programmer", "female", 35020, 15));
-                add(new Person("Vere", "Hervey", "Java programmer", "male", 2272, 25));
-                add(new Person("Maude", "Jaimie", "Java programmer", "female", 2057, 87));
-                add(new Person("Shawn", "Randall", "Java programmer", "male", 3120, 99));
-                add(new Person("Jayden", "Corrina", "Java programmer", "female", 345, 25));
-                add(new Person("Palmer", "Dene", "Java programmer", "male", 3375, 14));
-                add(new Person("Addison", "Pam", "Java programmer", "female", 3426, 20));
+                List<String> values=new ArrayList<>(1);
+                add(new Person("Elsdon", "Jaycob", "Java programmer", "male", 2000, 18,values));
+                add(new Person("Tamsen", "Brittany", "Java programmer", "female", 2371, 55,values));
+                add(new Person("Floyd", "Donny", "Java programmer", "male", 3322, 25,values));
+                add(new Person("Sindy", "Jonie", "Java programmer", "female", 35020, 15,values));
+                add(new Person("Vere", "Hervey", "Java programmer", "male", 2272, 25,values));
+                add(new Person("Maude", "Jaimie", "Java programmer", "female", 2057, 87,values));
+                add(new Person("Shawn", "Randall", "Java programmer", "male", 3120, 99,values));
+                add(new Person("Jayden", "Corrina", "Java programmer", "female", 345, 25,values));
+                add(new Person("Palmer", "Dene", "Java programmer", "male", 3375, 14,values));
+                add(new Person("Addison", "Pam", "Java programmer", "female", 3426, 20,values));
             }
         };
         ////返回数值流，减少拆箱封箱操作，避免占用内存  IntStream

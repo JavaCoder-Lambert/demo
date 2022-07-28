@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * @Author: lzj
@@ -30,4 +31,6 @@ public class Person implements Serializable {
     private Integer salary;
 
     private Integer age;
+
+    private List<String>  values;
 }
