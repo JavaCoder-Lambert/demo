@@ -10,8 +10,9 @@ import java.util.concurrent.locks.ReentrantLock;
  * @Description:
  */
 public class 綫程池 {
-//    private static AtomicInteger total=new AtomicInteger(0);
-    private static int total=0;
+    //    private static AtomicInteger total=new AtomicInteger(0);
+    private static int total = 0;
+    private static final int subNum = 1000;
     ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(2, 10, 5000,
             TimeUnit.MILLISECONDS, new ArrayBlockingQueue<Runnable>(5)
             , Executors.defaultThreadFactory(), new ThreadPoolExecutor.AbortPolicy());
@@ -19,31 +20,37 @@ public class 綫程池 {
     ThreadLocal<Integer> tl0 = new ThreadLocal<Integer>();
     ThreadLocal<Double> tl1 = new ThreadLocal<Double>();
     ThreadLocal<Long> tl2 = new ThreadLocal<Long>();
+    InheritableThreadLocal<Integer> inheritableThreadLocal=new InheritableThreadLocal<Integer>();
+
 
     public static class MyThread extends Thread {
         @Override
         public void run() {
             System.out.println("线程:" + Thread.currentThread().getName());
-            Integer num = DySchedule.getLine();
-            System.out.println("startline = " +(num-1000)+",endline = " + num);
+            int num = DySchedule.getLine();
+            System.out.println("startLine = " + (num - subNum) + ",endLine = " + num);
         }
     }
 
     public static class DySchedule {
-        private static AtomicInteger line = new AtomicInteger(0);
+        private static final AtomicInteger line = new AtomicInteger(0);
         static ExecutorService pool = Executors.newFixedThreadPool(100);
 
-        public static int getLine(){
-            return line.addAndGet(1000);
+        public static int getLine() {
+            return line.addAndGet(subNum);
         }
-        public static void doJob(){
-            for (int i = 0;i<100;i++){
+
+        public static void doJob() {
+            for (int i = 0; i < 100; i++) {
                 Thread thread = new MyThread();
                 pool.execute(thread);
             }
             pool.shutdown();
-
+            if (pool.isTerminated()) {
+                System.out.println("哦吼 结束了");
+            }
         }
+
         public static void main(String[] args) {
             DySchedule.doJob();
         }
@@ -79,30 +86,30 @@ public class 綫程池 {
     public static void main(String[] args) throws InterruptedException {
         CountDownLatch downLatch = new CountDownLatch(1);
         ReentrantLock lock = new ReentrantLock();
-        for(int i = 0; i < 10; i++){
+        for (int i = 0; i < 10; i++) {
             new Thread(() -> {
                 try {
                     downLatch.await();
                     lock.lock(); // 加锁
-                    for(int j = 0; j < 1000; j++){
+                    for (int j = 0; j < 1000; j++) {
                         total++;
                     }
-                    System.out.println("解锁前当前线程名称"+Thread.currentThread().getName());
+                    System.out.println("解锁前当前线程名称" + Thread.currentThread().getName());
 
-                    System.out.println("解锁后当前线程名称"+Thread.currentThread().getName());
+                    System.out.println("解锁后当前线程名称" + Thread.currentThread().getName());
                 } catch (InterruptedException e) {
                     e.printStackTrace();
-                }finally {
+                } finally {
                     lock.unlock(); // 解锁
                 }
             }).start();
         }
-        System.out.println("当前睡眠中的线程名称"+Thread.currentThread().getName());
+        System.out.println("当前睡眠中的线程名称" + Thread.currentThread().getName());
         Thread.sleep(2000);
         //释放线程后才会输出信息。因为这个线程被锁住了 因此会先输出当前睡眠中的线程名称信息之后释放后在输出上面的信息
         downLatch.countDown();
         Thread.sleep(2000);
-        System.out.println("当前睡眠后的线程名称"+Thread.currentThread().getName());
+        System.out.println("当前睡眠后的线程名称" + Thread.currentThread().getName());
         System.out.println(total);
     }
 
