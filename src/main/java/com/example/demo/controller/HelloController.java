@@ -1,9 +1,6 @@
 package com.example.demo.controller;
 
 import com.example.demo.common.annotation.PrintLog;
-import com.example.demo.model.BaseUser;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -17,8 +14,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class HelloController {
 
 
-    @Autowired
-    private RedisTemplate redisTemplate;
+//    @Autowired
+//    private RedisTemplate redisTemplate;
 
     @RequestMapping("/")
     @ResponseBody
