@@ -13,9 +13,9 @@ spring:
     type: com.alibaba.druid.pool.DruidDataSource
     druid:
       db-type: mysql
-      url: jdbc:mysql://47.111.163.12:3306/a_task?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=GMT%2B8
+      url: jdbc:mysql://47.111.163.12:3306/demo?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=GMT%2B8
       username: root
-      password: Wojiaolzj123@
+      password: Abc123++
       driver-class-name: com.mysql.cj.jdbc.Driver
       initial-size: 1
       max-active: 100
@@ -51,4 +51,26 @@ pagehelper:
   reasonable: true
   supportMethodsArguments: true
   params: count=countSql
+
+rocketmq:
+  name-server: 192.168.1.224:9876 # 访问地址
+  producer:
+    group: Pro_Group # 必须指定group
+    send-message-timeout: 3000 # 消息发送超时时长，默认3s
+    retry-times-when-send-failed: 3 # 同步发送消息失败重试次数，默认2
+    retry-times-when-send-async-failed: 3 # 异步发送消息失败重试次数，默认2
+
+redis:
+  database: 0
+  host: 124.221.181.81
+  port: 6379
+  timeout: 100000
+  password: lizhijiang
+  jedis:
+    pool:
+      max-active: 8
+      max-wait: -1
+      max-idle: 300
+      min-idle: 100
+
 

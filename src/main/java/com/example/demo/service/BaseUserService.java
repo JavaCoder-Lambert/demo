@@ -1,7 +1,8 @@
 package com.example.demo.service;
 
-import com.example.demo.model.BaseUser;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.example.demo.model.BaseUser;
+import org.springframework.stereotype.Repository;
 
 /**
  * <p>
