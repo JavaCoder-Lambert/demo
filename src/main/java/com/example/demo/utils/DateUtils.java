@@ -1,4 +1,4 @@
-package main.java.com.example.demo.utils;
+package com.example.demo.utils;
 
 import cn.hutool.core.date.DatePattern;
 import cn.hutool.core.date.DateUtil;
