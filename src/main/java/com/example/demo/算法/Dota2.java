@@ -16,27 +16,27 @@ public class Dota2 {
         System.out.println(predictDota2("RDDRRDDD"));
     }
 
-    public static String predictDota2(String value){
-        int length=value.length();
-        Queue<Integer> r=new LinkedList<>();
-        Queue<Integer> d=new LinkedList<>();
+    public static String predictDota2(String value) {
+        int length = value.length();
+        Queue<Integer> r = new LinkedList<>();
+        Queue<Integer> d = new LinkedList<>();
         for (int i = 0; i < length; i++) {
-             if(value.charAt(i)=='R'){
+            if (value.charAt(i) == 'R') {
                 r.offer(i);
-             }else {
-                 d.offer(i);
-             }
+            } else {
+                d.offer(i);
+            }
         }
-        while (!r.isEmpty()&&!d.isEmpty()){
-            int rp=r.poll(),dp=d.poll();
-            if(rp<dp){
-                r.offer(rp+length);
-            }else {
-                d.offer(dp+length);
+        while (!r.isEmpty() && !d.isEmpty()) {
+            int rp = r.poll(), dp = d.poll();
+            if (rp < dp) {
+                r.offer(rp + length);
+            } else {
+                d.offer(dp + length);
             }
         }
 
-        return d.isEmpty()?"R":"D";
+        return d.isEmpty() ? "R" : "D";
 
     }
 }
