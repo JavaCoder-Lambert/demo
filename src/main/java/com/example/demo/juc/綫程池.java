@@ -111,6 +111,17 @@ public class 綫程池 {
         Thread.sleep(2000);
         System.out.println("当前睡眠后的线程名称" + Thread.currentThread().getName());
         System.out.println(total);
+
+
+        ExecutorService pool = Executors.newScheduledThreadPool(5);
+        for (int i = 0; i < 20; i++) {
+            pool.submit(new Runnable() {
+                @Override
+                public void run() {
+                    System.out.println("定时的"+Thread.currentThread().getName());
+                }
+            });
+        }
     }
 
 }
